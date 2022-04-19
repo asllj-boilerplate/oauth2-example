@@ -3,6 +3,8 @@ version: '3'
 volumes:
   postgres_data:
       driver: local
+  mysql_data:
+      driver: local
 
 services:
   postgres:
@@ -28,3 +30,12 @@ services:
         - 8080:8080
       depends_on:
         - postgres
+  mysql:
+    image: mysql
+    volumes:
+      - mysql_data:/var/lib/mysql/data
+    environment:
+      MYSQL_DATABASE: fitnessapp
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: fitness
+      MYSQL_PASSWORD: password
