@@ -30,4 +30,7 @@ In this example we are going to focus only on store the history of workouts.
 
 ## Configuring Keycloak as authorization server:
 * run ``docker-compose up``
+* import realm and users 
+
+## Start Resource Server:
 
