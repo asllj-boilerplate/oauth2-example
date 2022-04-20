@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/fitnessapp
+    username: fitness
+    password: password
+    initialization-mode: always
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/auth/realms/master
+          jwk-set-uri: http://localhost:8080/auth/realms/master/protocol/openid-connect/certs
+
+server:
+  port: 8081
+
+claim:
+  aud: fitnessapp
+jwkSetUri: http://localhost:8080/auth/realms/master/protocol/openid-connect/certs
+
