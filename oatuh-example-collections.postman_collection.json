@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "48014ce7-1a32-480d-850d-67c393e8ee92",
+		"name": "oatuh-example-collections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authorization Server",
+			"item": [
+				{
+					"name": "Get token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "default"
+								},
+								{
+									"key": "username",
+									"value": "bill",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "default"
+								},
+								{
+									"key": "scope",
+									"value": "fitnessapp",
+									"type": "default"
+								},
+								{
+									"key": "client_id",
+									"value": "fitnessapp",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/realms/master/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"realms",
+								"master",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Resource Server",
+			"item": [
+				{
+					"name": "Create workout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWQkx0MTRPdWJLUVJRa0FRUzhpS2xaSXpoWjJOUXNTUHNUWkFDX2N2anBBIn0.eyJleHAiOjE2NTA0NDU5MjQsImlhdCI6MTY1MDQ0NTg2NCwianRpIjoiYzVkZTFkOWQtYzU1NS00NTA2LWE4YmUtYTg1OWI2Y2JiZjYzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL21hc3RlciIsImF1ZCI6ImZpdG5lc3NhcHAiLCJzdWIiOiIyOTk2NjkyYi1kMDA0LTQxZGItOTU1MS03ODVhZmI3ZTc1MzQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJmaXRuZXNzYXBwIiwic2Vzc2lvbl9zdGF0ZSI6Ijg3MzM2NjNjLWUwMjEtNDI5ZC05Mjc4LTM5YzBjN2E5ZGM0MiIsImFjciI6IjEiLCJzY29wZSI6ImZpdG5lc3NhcHAiLCJzaWQiOiI4NzMzNjYzYy1lMDIxLTQyOWQtOTI3OC0zOWMwYzdhOWRjNDIiLCJ1c2VyX25hbWUiOiJiaWxsIiwiYXV0aG9yaXRpZXMiOlsiZml0bmVzc3VzZXIiXX0.VbWH2Y-78nOsTN0nTgCoCT8X74GJhQqoRU_cy7o8xtJz8QIEyUYjW7QIVp1yOor9M_yGwXfxZPjM_gXv0OAjjWtBWtm9NPQy6syblOmuUqnCEDk-pv9rakavfuG58k7qH0PODFNsDpTGtRMZsIXjcy9SW0digKTElVzwMe-Nx2yRZlxRAV8yrU6FHpWqxca-nq1HIyZVMYSK3-el2ENkf8MMiBACMEnftoRCYzwK_VyMY8e2eBzahTXwodMUGfkkQjZbiCgTqGR0WKMDlBPj3NUHEVeYTBvzLyfU18AklS9ig5Ju61ILaxSmS-a0AjTs3CgHIzyEuBDicuh10Artmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\" : \"bill\",\r\n    \"start\" : \"2020-06-10T15:05:05\",\r\n    \"end\" : \"2020-06-10T16:05:05\",\r\n    \"difficulty\" : 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/workout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"workout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all workouts for a user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWQkx0MTRPdWJLUVJRa0FRUzhpS2xaSXpoWjJOUXNTUHNUWkFDX2N2anBBIn0.eyJleHAiOjE2NTA0NDU5MjQsImlhdCI6MTY1MDQ0NTg2NCwianRpIjoiYzVkZTFkOWQtYzU1NS00NTA2LWE4YmUtYTg1OWI2Y2JiZjYzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL21hc3RlciIsImF1ZCI6ImZpdG5lc3NhcHAiLCJzdWIiOiIyOTk2NjkyYi1kMDA0LTQxZGItOTU1MS03ODVhZmI3ZTc1MzQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJmaXRuZXNzYXBwIiwic2Vzc2lvbl9zdGF0ZSI6Ijg3MzM2NjNjLWUwMjEtNDI5ZC05Mjc4LTM5YzBjN2E5ZGM0MiIsImFjciI6IjEiLCJzY29wZSI6ImZpdG5lc3NhcHAiLCJzaWQiOiI4NzMzNjYzYy1lMDIxLTQyOWQtOTI3OC0zOWMwYzdhOWRjNDIiLCJ1c2VyX25hbWUiOiJiaWxsIiwiYXV0aG9yaXRpZXMiOlsiZml0bmVzc3VzZXIiXX0.VbWH2Y-78nOsTN0nTgCoCT8X74GJhQqoRU_cy7o8xtJz8QIEyUYjW7QIVp1yOor9M_yGwXfxZPjM_gXv0OAjjWtBWtm9NPQy6syblOmuUqnCEDk-pv9rakavfuG58k7qH0PODFNsDpTGtRMZsIXjcy9SW0digKTElVzwMe-Nx2yRZlxRAV8yrU6FHpWqxca-nq1HIyZVMYSK3-el2ENkf8MMiBACMEnftoRCYzwK_VyMY8e2eBzahTXwodMUGfkkQjZbiCgTqGR0WKMDlBPj3NUHEVeYTBvzLyfU18AklS9ig5Ju61ILaxSmS-a0AjTs3CgHIzyEuBDicuh10Artmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/workout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"workout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Workout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJWQkx0MTRPdWJLUVJRa0FRUzhpS2xaSXpoWjJOUXNTUHNUWkFDX2N2anBBIn0.eyJleHAiOjE2NTA0NDU5MjQsImlhdCI6MTY1MDQ0NTg2NCwianRpIjoiYzVkZTFkOWQtYzU1NS00NTA2LWE4YmUtYTg1OWI2Y2JiZjYzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL21hc3RlciIsImF1ZCI6ImZpdG5lc3NhcHAiLCJzdWIiOiIyOTk2NjkyYi1kMDA0LTQxZGItOTU1MS03ODVhZmI3ZTc1MzQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJmaXRuZXNzYXBwIiwic2Vzc2lvbl9zdGF0ZSI6Ijg3MzM2NjNjLWUwMjEtNDI5ZC05Mjc4LTM5YzBjN2E5ZGM0MiIsImFjciI6IjEiLCJzY29wZSI6ImZpdG5lc3NhcHAiLCJzaWQiOiI4NzMzNjYzYy1lMDIxLTQyOWQtOTI3OC0zOWMwYzdhOWRjNDIiLCJ1c2VyX25hbWUiOiJiaWxsIiwiYXV0aG9yaXRpZXMiOlsiZml0bmVzc3VzZXIiXX0.VbWH2Y-78nOsTN0nTgCoCT8X74GJhQqoRU_cy7o8xtJz8QIEyUYjW7QIVp1yOor9M_yGwXfxZPjM_gXv0OAjjWtBWtm9NPQy6syblOmuUqnCEDk-pv9rakavfuG58k7qH0PODFNsDpTGtRMZsIXjcy9SW0digKTElVzwMe-Nx2yRZlxRAV8yrU6FHpWqxca-nq1HIyZVMYSK3-el2ENkf8MMiBACMEnftoRCYzwK_VyMY8e2eBzahTXwodMUGfkkQjZbiCgTqGR0WKMDlBPj3NUHEVeYTBvzLyfU18AklS9ig5Ju61ILaxSmS-a0AjTs3CgHIzyEuBDicuh10Artmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/workout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"workout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

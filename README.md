@@ -14,12 +14,18 @@ In this example we are going to focus only on store the history of workouts.
 * **Find all workout for a user:** all workouts of a specific user will be return, in case of this same user is authenticated. A user cannot get others user's workouts
 * **Delete a workout:** Any user having the admin role can delete a workout for any other user
 
+
 ### Roles
+
  * fitnessuser - standard user
      * user can add a workout for themselves and can see their own workout history
  * fitnessadmin - admin
      * can add workouts for themselves or see their own recorded workouts 
+	 
+### Users
 
+* mary - fitnessadmin user
+*rachel, bill - fitnessuser user
 
 
 ## Requirements:
@@ -27,10 +33,13 @@ In this example we are going to focus only on store the history of workouts.
 * Maven
 * docker
 
+## Run
 
-## Configuring Keycloak as authorization server:
 * run ``docker-compose up``
-* import realm and users 
+* after keycloak is running import the realm-export.json inseide keycloak folder to create users and other stuff
+* 
 
-## Start Resource Server:
+## Testing application
+
+* You can import the postman collection provided to get access to the requests
 
