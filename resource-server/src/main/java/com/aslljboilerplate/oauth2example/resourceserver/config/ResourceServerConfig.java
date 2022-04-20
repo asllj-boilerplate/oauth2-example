@@ -18,44 +18,6 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtGra
 public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
 
 
-    @Value("${claim.aud}")
-    private String claimAud;
-
-    @Value("${jwkSetUri}")
-    private String urlJwk;
-
-    private OAuth2ResourceServerProperties resource;
-
-    /**
-    public void configure(ResourceServerSecurityConfigurer resources){
-        resources.tokenStore(tokenStore());
-        resources.resourceId(claimAud);
-    }
-
-    @Bean
-    public TokenStore tokenStore() {
-        return new JwkTokenStore(urlJwk);
-    }**/
-
-
-    //AccessTokenConverter is the object that converts the token to an AUthentication
-    //This is the object we need to change so that it also takes into consideration the custom details in the token
-    //We create a custom implementation of JwtAccessTokenConverter, which also takes into consideration our new details on the token.
-    // The simplest way is to extend this class and override the extractAuthentication() method. This method converts the token in an Authentication object
-    /**
-     @Bean
-    public JwtAccessTokenConverter jwtAccessTokenConverter() {
-        var converter = new JwtAccessTokenConverter();
-
-    }
-
-    public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .mvcMatchers(HttpMethod.DELETE,"/**").hasAuthority("fitnessadmin")
-                .anyRequest().authenticated();
-    }**/
-
-
     //is able to append resource-specific roles to the authorities collection.
     @Bean
     public JwtAuthenticationConverter jwtAuthenticationConverter() {
