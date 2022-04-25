@@ -37,7 +37,10 @@ In this example we are going to focus only on store the history of workouts.
 
 * run ``docker-compose up``
 * after keycloak is running import the realm-export.json inseide keycloak folder to create users and other stuff
-* 
+* Inside resource-server folder build the image and run the application :
+   * run ``docker build -t resource-server-example .``
+   * run ``docker run --rm resource-server-example``
+   
 
 ## Testing application
 
