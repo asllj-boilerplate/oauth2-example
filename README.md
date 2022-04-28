@@ -34,15 +34,25 @@ In this example we are going to focus only on store the history of workouts.
 * docker
 
 ## Run
-
-* run ``docker-compose up``
-* after keycloak is running import the realm-export.json inseide keycloak folder to create users and other stuff
 * Inside resource-server folder build the image and run the application :
    * run ``docker build -t resource-server-example .``
    * run ``docker run --rm resource-server-example``
-   
+  
+* Add on /etc/hosts file :  ``127.0.0.1		keycloak``
+* Run ``docker-compose up``
+* After keycloak is running import the realm-export.json inside keycloak folder to create users and other stuff
+* Follow the next configuration in case of missing:
+ ![image](https://user-images.githubusercontent.com/15162574/165830861-36264780-0a45-4c43-ab5e-9666e7d45830.png)
+ ![image](https://user-images.githubusercontent.com/15162574/165830935-295c0a86-a9c4-48f3-ac8e-e8fc3b77affd.png)
+ ![image](https://user-images.githubusercontent.com/15162574/165830975-5e590f61-8c10-49e7-a551-b6d9693e6541.png)
+ ![image](https://user-images.githubusercontent.com/15162574/165831011-b6377e0b-e5e6-4773-aedb-94845687f44b.png)
+ ![image](https://user-images.githubusercontent.com/15162574/165831047-6d9f5d62-a0e1-4ca5-a094-17daec0760c7.png)
+ ![image](https://user-images.githubusercontent.com/15162574/165831077-333a87fc-1a0a-4835-ab9b-1245a6776cd9.png)
+ ![image](https://user-images.githubusercontent.com/15162574/165831107-8f8d64ab-c45a-4a19-9743-66b105e78649.png)
 
 ## Testing application
 
 * You can import the postman collection provided to get access to the requests
+* Get the token first 
+* And use it with other requests
 
