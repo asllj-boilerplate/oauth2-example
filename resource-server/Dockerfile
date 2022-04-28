@@ -18,4 +18,6 @@ COPY --from=builder application/ ./
 
 EXPOSE 8081
 
+# in case of debug
+#ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher","--trace"]
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]

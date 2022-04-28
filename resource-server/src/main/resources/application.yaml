@@ -9,13 +9,16 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/auth/realms/master
-          jwk-set-uri: http://localhost:8080/auth/realms/master/protocol/openid-connect/certs
+          issuer-uri: ${keycloak.server}/auth/realms/master
+          jwk-set-uri: ${keycloak.server}/auth/realms/master/protocol/openid-connect/certs
 
 server:
   port: 8081
 
-claim:
-  aud: fitnessapp
-jwkSetUri: http://localhost:8080/auth/realms/master/protocol/openid-connect/certs
+keycloak:
+  server: ${KEYCLOAK_SERVER}
+
+logging:
+  level:
+    org.spring.framework: debug
 
